@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+</head>
+<body>
+    <h1>Text to Speech Converter</h1>
+    <textarea id="textInput" rows="10" cols="30" placeholder="Type something here..."></textarea><br>
+    <button id="speakButton">Speak</button>
+
+    <script>
+        document.getElementById('speakButton').addEventListener('click', function() {
+            const textInput = document.getElementById('textInput').value;
+            if (textInput) {
+                const speech = new SpeechSynthesisUtterance(textInput);
+                speech.lang = 'en-US'; // You can change this to other language codes as needed
+                window.speechSynthesis.speak(speech);
+            } else {
+                alert('Please enter some text to speak!');
+            }
+        });
+    </script>
+</body>
+</html>
